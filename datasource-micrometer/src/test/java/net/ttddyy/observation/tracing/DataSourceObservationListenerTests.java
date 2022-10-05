@@ -289,7 +289,7 @@ class DataSourceObservationListenerTests {
 		Method rollbackMethod = Connection.class.getMethod("rollback");
 
 		ConnectionContext connectionContext = new ConnectionContext();
-		Observation observation = Observation.start("test", connectionContext, this.registry);
+		Observation observation = Observation.start("test", () -> connectionContext, this.registry);
 
 		ConnectionAttributes connectionAttributes = new ConnectionAttributes();
 		connectionAttributes.scope = observation.openScope();
